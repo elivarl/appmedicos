@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,6 +38,14 @@ public class PacienteController {
 		logger.info("Información del paciente {}", paciente);
 		pacienteService.save(paciente);
 		return "redirect:/paciente/index";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String edit(Model model, @PathVariable Integer id) {
+		logger.info("Id del paciente, {}", id);
+		logger.info("Datos pacinete: {}",pacienteService.findById(id).get() );
+		model.addAttribute("paciente", pacienteService.findById(id).get());
+		return "paciente/edit";
 	}
 	
 }

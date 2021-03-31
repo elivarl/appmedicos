@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Admin AppMedicos</title>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div th:include="template/sidebar.html::sidebar"></div>
+		<!-- End of Sidebar -->
+
+
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar NAV-->
+				<div th:include="template/nav.html::nav"></div>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Actualizar Datos Paciente</h1>
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+						<div class="col-lg-12">
+
+							<!-- Default Card Example -->
+							<div class="card mb-4">
+								<div class="card-header">Información del Paciente</div>
+								<div class="card-body">
+
+									<form method="POST" th:action="@{/paciente/save}">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Identificación</label> <input type="text"
+														class="form-control" name="identificacion"
+														th:value="${paciente.identificacion}" required
+														autocomplete="off">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Fecha nacimiento</label> <input type="date"
+														name="fechaNacimiento" class="form-control input-sm">
+												</div>
+											</div>
+										</div>
+										<!-- /row-->
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Nombres</label> <input type="text"
+														class="form-control" name="nombres" required
+														th:value="${paciente.nombres}" autocomplete="off"
+														>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Apellidos</label> <input type="text"
+														class="form-control" name="apellidos" required
+														th:value="${paciente.apellidos}" autocomplete="off">
+												</div>
+											</div>
+										</div>
+										<!-- /row-->
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Celular</label> <input type="number"
+														class="form-control" name="celular"
+														th:value="${paciente.celular}" required
+														autocomplete="off">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Correo</label> <input type="text"
+														class="form-control" name="email" required
+														th:value="${paciente.email}"
+														autocomplete="off">
+												</div>
+											</div>
+										</div>
+										<!-- /row-->
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Ocupación del Paciente</label> <input type="text"
+														class="form-control" name="ocupacion"
+														th:value="${paciente.ocupacion}" required
+														autocomplete="off">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Direción del Paciente</label> <input type="text"
+														class="form-control" name="direccion"
+														th:value="${paciente.direccion}" required
+														autocomplete="off">
+												</div>
+											</div>
+										</div>
+										<!-- /row-->
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="mr-sm-2" for="tipoSangre">Seleccione el
+														tipo de sangre</label> <select
+														class="custom-select mb-2 mr-sm-2 mb-sm-0"
+														id="tipoSangre" name="tipoSangre">
+														<option th:value="${paciente.tipoSangre}">zzzzz</option>
+														<option value="O-">O negativo</option>
+														<option value="O+">O positivo</option>
+														<option value="A-">A negativo</option>
+														<option value="A+">A positivo</option>
+														<option value="B-">B negativo</option>
+														<option value="B+">B positivo</option>
+														<option value="AB-">AB negativo</option>
+														<option value="AB+">AB positivo</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="mr-sm-2" for="genero">Seleccione su
+														género</label> <select class="custom-select mb-2 mr-sm-2 mb-sm-0"
+														id="genero" name="genero">
+														<option value="1">Masculino</option>
+														<option value="0">Femenino</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<!-- /row-->
+
+
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary btn-sm">
+												<span class="fa fa-fw fa-check"></span> Guardar
+											</button>
+										</div>
+
+									</form>
+									<!-- /.form -->
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<div th:include="template/footer.html::footer"></div>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

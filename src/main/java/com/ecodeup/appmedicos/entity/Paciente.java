@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,18 +24,21 @@ public class Paciente {
 	private String ocupacion;
 	private String estadoCivil;
 	private String email;  
-	private String tipoSangre;
+	@OneToOne
+	private TipoSangre tipoSangre;
 	private String direccion;
 	private String celular;
-	private String genero;
+	@OneToOne
+	private Genero genero;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
 	public Paciente() {
 	
 	}	
+	
 	public Paciente(Integer id, String identificacion, String nombres, String apellidos, String ocupacion,
-			String estadoCivil, String email, String tipoSangre, String direccion, String celular, String genero,
+			String estadoCivil, String email, TipoSangre tipoSangre, String direccion, String celular, Genero genero,
 			LocalDate fechaNacimiento) {
 		super();
 		this.id = id;
@@ -93,12 +97,18 @@ public class Paciente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTipoSangre() {
+	public TipoSangre getTipoSangre() {
 		return tipoSangre;
 	}
-	public void setTipoSangre(String tipoSangre) {
+
+	public void setTipoSangre(TipoSangre tipoSangre) {
 		this.tipoSangre = tipoSangre;
 	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+
 	public String getDireccion() {
 		return direccion;
 	}
@@ -111,24 +121,18 @@ public class Paciente {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	public String getGenero() {
-		return genero;
-	}
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
 	@Override
 	public String toString() {
 		return "Paciente [id=" + id + ", identificacion=" + identificacion + ", nombres=" + nombres + ", apellidos="
 				+ apellidos + ", ocupacion=" + ocupacion + ", estadoCivil=" + estadoCivil + ", email=" + email
 				+ ", tipoSangre=" + tipoSangre + ", direccion=" + direccion + ", celular=" + celular + ", genero="
 				+ genero + ", fechaNacimiento=" + fechaNacimiento + "]";
-	}
-	
+	}	
 }
