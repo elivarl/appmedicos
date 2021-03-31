@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="pacientes")
 public class Paciente {
@@ -25,6 +27,7 @@ public class Paciente {
 	private String direccion;
 	private String celular;
 	private String genero;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
 	public Paciente() {
