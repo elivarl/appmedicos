@@ -109,6 +109,10 @@ public class Paciente {
 		this.genero = genero;
 	}
 
+	public Genero getGenero() {
+		return genero;
+	}
+
 	public String getDireccion() {
 		return direccion;
 	}

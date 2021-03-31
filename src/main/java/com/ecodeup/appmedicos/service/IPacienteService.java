@@ -9,5 +9,5 @@ public interface IPacienteService {
 	Paciente save (Paciente paciente);
 	Optional<Paciente> findById(Integer id);
 	List<Paciente> findAll();
-	void delete (Paciente paciente);
+	void deleteById (Integer id);
 }

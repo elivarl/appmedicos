@@ -62,10 +62,18 @@ public class PacienteController {
 	
 	@GetMapping("/edit/{id}")
 	public String edit(Model model, @PathVariable Integer id) {
+		Paciente paciente= pacienteService.findById(id).get(); 
+		
 		logger.info("Id del paciente, {}", id);
 		logger.info("Datos pacinete: {}",pacienteService.findById(id).get() );
-		model.addAttribute("paciente", pacienteService.findById(id).get());
+		model.addAttribute("paciente", paciente);
 		return "paciente/edit";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		pacienteService.deleteById(id);
+		return "redirect:/paciente/index";
 	}
 	
 }

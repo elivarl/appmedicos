@@ -87,7 +87,7 @@
                                             <td th:text="${paciente.email}"></td>
                                             <td th:text="${paciente.celular}"></td>
                                             <td ><a th:href="@{/paciente/edit/{id} (id= ${paciente.id})}"class="btn btn-primary"> Actualizar</a> </td>
-                                            <td ><button type="submit" class="btn btn-danger"> Eliminar</button> </td>
+                                            <td ><a th:href="@{/paciente/delete/{id} (id = ${paciente.id})}" class="btn btn-danger"> Eliminar</a> </td>
                                         </tr>                                        
                                     </tbody>
                                 </table>
