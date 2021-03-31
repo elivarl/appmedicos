@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ecodeup.appmedicos.entity.Genero;
 import com.ecodeup.appmedicos.entity.Paciente;
+import com.ecodeup.appmedicos.entity.TipoSangre;
+import com.ecodeup.appmedicos.service.IGeneroService;
 import com.ecodeup.appmedicos.service.IPacienteService;
+import com.ecodeup.appmedicos.service.ITipoSangreService;
 
 @Controller
 @RequestMapping("/paciente")
@@ -20,6 +25,12 @@ public class PacienteController {
 	
 	@Autowired
 	private IPacienteService pacienteService;
+	
+	@Autowired
+	private ITipoSangreService tipoSangreService;
+	
+	@Autowired
+	private IGeneroService generoService;
 	
 	
 	@GetMapping("/index")
@@ -34,7 +45,16 @@ public class PacienteController {
 	}
 	
 	@PostMapping("/save")
-	public String save (Paciente paciente) {
+	public String save (Paciente paciente, @RequestParam String tipo, @RequestParam String genero) {
+		TipoSangre tipoSangre=tipoSangreService.findByCodigo(tipo);
+		Genero generoObject= generoService.findByCodigo(genero);
+		
+		logger.info("Información del tipo {}", tipo);
+		logger.info("Objeto tipo {}",  tipoSangre);
+		logger.info("Informacion del genero: {}", genero);
+		
+		paciente.setTipoSangre(tipoSangre);
+		paciente.setGenero(generoObject);
 		logger.info("Información del paciente {}", paciente);
 		pacienteService.save(paciente);
 		return "redirect:/paciente/index";
