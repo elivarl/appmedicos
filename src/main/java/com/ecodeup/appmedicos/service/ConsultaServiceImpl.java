@@ -10,32 +10,29 @@ import com.ecodeup.appmedicos.entity.HistoriaClinica;
 import com.ecodeup.appmedicos.repository.IConsultaMedicaRepository;
 
 @Service
-public class ConsultaServiceImpl implements IConsultaMedicaService{
-	
+public class ConsultaServiceImpl implements IConsultaMedicaService {
+
 	@Autowired
 	private IConsultaMedicaRepository consultaRepository;
 
 	@Override
 	public List<ConsultaMedica> findAll() {
-		return null;
+		return consultaRepository.findAll();
 	}
 
 	@Override
 	public ConsultaMedica save(ConsultaMedica consultaMedica) {
-		// TODO Auto-generated method stub
-		return null;
+		return consultaRepository.save(consultaMedica);
 	}
 
 	@Override
 	public ConsultaMedica fidByHistoriaClinica(HistoriaClinica historiaClinica) {
-		// TODO Auto-generated method stub
-		return null;
+		return consultaRepository.findByHistoriaClinica(historiaClinica);
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
+		consultaRepository.deleteById(id);
 	}
 
 }
