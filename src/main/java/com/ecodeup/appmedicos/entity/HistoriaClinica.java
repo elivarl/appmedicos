@@ -22,6 +22,7 @@ public class HistoriaClinica {
 	private String comentarios;
 	
 	public HistoriaClinica() {
+		this.numero = null;
 	
 	}
 	public HistoriaClinica(Integer id, LocalDate fechaRegistro, String numero, Paciente paciente, String comentarios) {

@@ -36,12 +36,12 @@ public class PacienteController {
 	@GetMapping("/index")
 	public String index(Model model) {
 		model.addAttribute("pacientes", pacienteService.findAll());
-		return "paciente/index";
+		return "pacientes/index";
 	}
 	
 	@GetMapping("/nuevo")
 	public String nuevo() {
-		return "paciente/create";
+		return "pacientes/create";
 	}
 	
 	@PostMapping("/save")
@@ -57,7 +57,7 @@ public class PacienteController {
 		paciente.setGenero(generoObject);
 		logger.info("Información del paciente {}", paciente);
 		pacienteService.save(paciente);
-		return "redirect:/paciente/index";
+		return "redirect:/pacientes/index";
 	}
 	
 	@GetMapping("/edit/{id}")
@@ -67,13 +67,13 @@ public class PacienteController {
 		logger.info("Id del paciente, {}", id);
 		logger.info("Datos pacinete: {}",pacienteService.findById(id).get() );
 		model.addAttribute("paciente", paciente);
-		return "paciente/edit";
+		return "pacientes/edit";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id) {
 		pacienteService.deleteById(id);
-		return "redirect:/paciente/index";
+		return "redirect:/pacientes/index";
 	}
 	
 }
