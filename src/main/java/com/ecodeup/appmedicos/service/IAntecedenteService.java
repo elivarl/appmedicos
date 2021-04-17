@@ -4,10 +4,11 @@ import com.ecodeup.appmedicos.entity.Antecedente;
 import com.ecodeup.appmedicos.entity.HistoriaClinica;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IAntecedenteService {
 	List<Antecedente> findAll();
-	Antecedente findByHistoriaClinica(HistoriaClinica historiaClinica);
+	Optional<Antecedente> findByHistoriaClinica(HistoriaClinica historiaClinica);
 	Antecedente save(Antecedente antecedente);
 	void deleteById(Integer id);
 }

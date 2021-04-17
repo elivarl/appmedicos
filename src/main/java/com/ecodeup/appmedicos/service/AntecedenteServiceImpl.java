@@ -1,6 +1,7 @@
 package com.ecodeup.appmedicos.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class AntecedenteServiceImpl implements IAntecedenteService{
 	}
 
 	@Override
-	public Antecedente findByHistoriaClinica(HistoriaClinica historiaClinica) {
+	public Optional<Antecedente> findByHistoriaClinica(HistoriaClinica historiaClinica) {
 		return antecedentesRepository.findByHistoriaClinica(historiaClinica);
 	}
 

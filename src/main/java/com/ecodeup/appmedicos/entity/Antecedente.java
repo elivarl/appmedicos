@@ -20,7 +20,14 @@ public class Antecedente {
 	private String habitos;
 	@OneToOne
 	private HistoriaClinica historiaClinica;
-	public Antecedente() {
+	public Antecedente(
+			
+			) {
+		/*this.personales="";
+		this.familiares="";
+		this.alergicos="";
+		this.medicamentos="";
+		this.habitos="";*/
 	
 	}	
 	public Antecedente(Integer id, String personales, String familiares, String alergicos, String medicamentos,

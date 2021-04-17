@@ -52,9 +52,6 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Datos Historia Clínica</h1>
-						<a href="#"
-							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-							class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 					</div>
 
 					<!-- Content Row -->
@@ -73,7 +70,8 @@
                                             <th>Fecha Registro</th>
                                             <th># Historia</th>
                                             <th>Comentarios</th>
-                                            <th>Acciones</th>
+                                            <th>Editar</th>
+                                            <th>Antecedentes</th>
                                         </tr>
                                     </thead>                                    
                                     <tbody>
@@ -82,6 +80,7 @@
                                             <td th:text="${historia.numero}"></td>
                                             <td th:text="${historia.comentarios}"></td>                                           
                                             <td ><a th:href="@{/historia/edit/{id} (id= ${historia.id})}"class="btn btn-primary">Actualizar Comentarios</a> </td>
+                                            <td ><a th:href="@{/historia/antecedentes/index/{id} (id= ${historia.id})}"class="btn btn-primary">Antecedentes</a> </td>
                                         </tr>                                        
                                     </tbody>
                                 </table>

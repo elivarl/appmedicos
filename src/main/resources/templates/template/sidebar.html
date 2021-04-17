@@ -48,17 +48,33 @@
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 			data-toggle="collapse" data-target="#collapseHistoria"
 			aria-expanded="true" aria-controls="collapseHistoria"> <i
-				class="fas fa-fw fa-cog"></i> <span>Consultas Médicas</span>
+				class="fas fa-fw fa-cog"></i> <span>Historias Clínicas</span>
 		</a>
 		<div id="collapseHistoria" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Aperturas H. Clínicas:</h6>
+				<h6 class="collapse-header">Aperturas H. Clínicas</h6>
 				<a class="collapse-item" th:href="@{/historia/paciente}">Crear Historia Clínica</a>
+				<a class="collapse-item" th:href="@{/historia/paciente}">Registro Antecedentes</a>
+				
+			</div>
+		</div>
+		</li>	
+		
+		
+		<li class="nav-item"><a class="nav-link collapsed" href="#"
+			data-toggle="collapse" data-target="#collapseConsulta"
+			aria-expanded="true" aria-controls="collapseConsulta"> <i
+				class="fas fa-fw fa-cog"></i> <span>Consultas Médicas</span>
+		</a>
+		<div id="collapseConsulta" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Consultas Médicas}</h6>
 				<a class="collapse-item" th:href="@{/historia/paciente}">Nueva Consulta</a>
 				<a class="collapse-item" th:href="@{/historia/paciente}">Control</a>
 			</div>
 		</div>
 		</li>		
+			
 		
 
 	</ul>
